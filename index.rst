@@ -52,10 +52,14 @@ Assume that the systematic offset seen in each of the Rotation panels is a calib
 .. image:: images/854_rotation_sub_median.png
   :width: 700px
 
+Figure 3. Position errors and rotation - median 
+
 The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
 
 .. image:: images/854_rms_repeatability.png
   :width: 700px
+
+Figure 4. rms repeatability
 
 SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
 ============================================================================================
@@ -64,12 +68,12 @@ Notebook to fit a line to the final raised position and confirm that the slope i
 .. image:: images/810_slope_plot.png
   :width: 700px
 
-Figure . x position between successive ACTIVEENGINEERING and LOWERINGENGINEERING states, and between selected timestamps where all 6 Hard Points are in standby (motionState == 0). 
+Figure 5. x position between successive ACTIVEENGINEERING and LOWERINGENGINEERING states, and between selected timestamps where all 6 Hard Points are in standby (motionState == 0). 
 
 .. image:: images/810_table_slopes.png
   :width: 700px
  
-Figure . Statistics on slopes in mm/s
+Figure 6. Statistics on slopes in mm/s
 .. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
 .. Make in-text citations with: :cite:`bibkey`.
