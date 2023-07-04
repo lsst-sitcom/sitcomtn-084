@@ -26,11 +26,11 @@ SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Re
 SITCOM - 797 : M1M3 - Slewing analysis - Positioning
 ================
 
-.. image:: ../images/797_position_rotation_xyz.png
+.. image:: ../../images/797_position_rotation_xyz.png
 
 Figure 1. Position moved on xyz before and after the slew, according to the elevation slew angle
 
-.. image:: ../images/797_histogram_position_rotation_xyz.png
+.. image:: ../../images/797_histogram_position_rotation_xyz.png
 
 Figure 2. Histogram for position and rotation xyz
 
