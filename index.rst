@@ -37,20 +37,25 @@ Analysing the positions and rotations of xzy compared between before and after t
 
 Figure 1. Position moved on xyz between before and after the slew, according to the elevation slew angle
 
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
 .. image:: images/797_histogram_position_rotation_xyz.png
   :width: 700px
 
 Figure 2. Histogram for position and rotation xyz for after - before 
 
-SITCOM - 730 : Create data analysis script/notebook for LVV-T235
-=================================================================
-
-
 
 SITCOM - 854 : Update LVV-T235 notebook
 ========================================
 
+Assume that the systematic offset seen in each of the Rotation panels is a calibration issue, and remove the median value from each panel to assess the scatter about the median.
 
+.. image:: images/854_rotation_sub_median.png
+  :width: 700px
+
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
+
+.. image:: images/854_rms_repeatability.png
+  :width: 700px
 
 SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
 ============================================================================================
