@@ -68,12 +68,13 @@ Notebook to fit a line to the final raised position and confirm that the slope i
 .. image:: images/810_slope_plot.png
   :width: 700px
 
-Figure 5. x position between successive ACTIVEENGINEERING and LOWERINGENGINEERING states, and between selected timestamps where all 6 Hard Points are in standby (motionState == 0). 
+Figure 5. x position between successive ACTIVEENGINEERING and LOWERINGENGINEERING states, and between selected timestamps where all 6 Hard Points are in standby `(motionState == 0)`. 
 
 .. image:: images/810_table_slopes.png
   :width: 700px
  
-Figure 6. Statistics on slopes in mm/s
+Figure 6. Statistics on slopes in `mm/s`
+
 .. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
 .. Make in-text citations with: :cite:`bibkey`.
