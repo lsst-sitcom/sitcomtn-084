@@ -15,11 +15,42 @@ Abstract
 
 This is the technote for the Position Repeatability Analysis on the TMA with M1M3 
 
-Add content here
+Related SITCOM tickets
 ================
 
-Add content here.
-See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
+SITCOM - 797 : M1M3 - Slewing analysis - Positioning
+SITCOM - 730 : Create data analysis script/notebook for LVV-T235
+SITCOM - 854 : Update LVV-T235 notebook
+SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
+
+SITCOM - 797 : M1M3 - Slewing analysis - Positioning
+================
+
+.. image:: ./images/797_position_rotation_xyz.png
+
+Figure 1. Position moved on xyz before and after the slew, according to the elevation slew angle
+
+.. image:: ./images/797_histogram_position_rotation_xyz.png
+
+Figure 2. Histogram for position and rotation xyz
+
+SITCOM - 730 : Create data analysis script/notebook for LVV-T235
+================
+
+
+
+SITCOM - 854 : Update LVV-T235 notebook
+================
+
+
+
+SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
+================
+
+
+
+
+.. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
 .. Make in-text citations with: :cite:`bibkey`.
 .. Uncomment to use citations
