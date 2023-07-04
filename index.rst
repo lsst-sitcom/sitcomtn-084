@@ -37,7 +37,8 @@ Analysing the positions and rotations of xzy compared between before and after t
 
 Figure 1. Position moved on xyz between before and after the slew, according to the elevation slew angle
 
-The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
+
 .. image:: images/797_histogram_position_rotation_xyz.png
   :width: 700px
 
