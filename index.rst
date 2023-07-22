@@ -42,6 +42,8 @@ The requirement specifies that the rms repeatability of the mirror positioning i
 .. image:: images/797_histogram_position_rotation_xyz.png
   :width: 700px
 
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
+
 Figure 2. Histogram for position and rotation xyz for after - before 
 
 
@@ -60,11 +62,41 @@ The requirement specifies that the rms repeatability of the mirror positioning i
 .. image:: images/854_rms_repeatability.png
   :width: 700px
 
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
+
 Figure 4. rms repeatability
 
 SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
 ============================================================================================
-Notebook to fit a line to the final raised position and confirm that the slope is close to 0. The script for the test case can be found here: `http://lsst-ts/ts_m1m3supporttesting/M13T012.py`
+Notebook to fit a line to the final raised position and confirm that the slope is close to 0. The script for the test case can be found here: `M13T012 <http://lsst-ts/ts_m1m3supporttesting/M13T012.py>`__
+
+For this analysis we are using data from the LVV-T235 test case.
+The following plot shows the x and y positions (shifted in order to be centered around 0) as a function of time, the vertical lines shows the various M1M3 "detailedStates". We see that the same pattern is repeated several times over the chosen data taking period.
+
+.. image:: images/810_overview_ref_subtracted.png
+  :width: 700px
+
+If we isolate one of the patterns we get the following where the lines shows the Hard Point states
+
+.. image:: images/810_singleloop.png
+  :width: 700px
+
+We are interested in the slope of the x and y positions on the flat tops / bottoms just before reaching the "Hard Point in Standby" status. We choose to select and analyze one second of data before "HP in standby".
+We repeat this selection for every cycle in x and y and get a set of plots like the following showing the x and y positions as a function of time in the one-second time windows
+
+.. image:: images/810_position_stability.png
+  :width: 700px
+
+
+The slope measurement is performed on every subset of data. Statistics are summarized in the following table
+
+.. image:: images/810_table.png
+  :width: 700px
+
+We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0 
+
+
+
 
 .. image:: images/810_slope_plot.png
   :width: 700px
