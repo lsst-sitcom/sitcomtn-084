@@ -6,14 +6,11 @@
 
 .. TODO: Delete the note below before merging new content to the main branch.
 
-.. note::
-
-   **This technote is a work-in-progress.**
-
 Abstract
 ========
 
-This is the technote for the Position Repeatability Analysis on the TMA with M1M3 
+This is the technote for the Position Repeatability Analysis on the TMA with M1M3. We measured the position moved between before and after the slew. 
+Analysis was done with the different elevation angles slewed at once, and also with different speed of slewing. 
 
 Related SITCOM tickets
 ======================
@@ -68,7 +65,7 @@ Figure 4. rms repeatability
 
 SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
 ============================================================================================
-Notebook to fit a line to the final raised position and confirm that the slope is close to 0. The script for the test case can be found here: `M13T012 <http://lsst-ts/ts_m1m3supporttesting/M13T012.py>`__
+A notebook was created to fit a line to the final raised position and confirm that the slope is close to 0. The script for the test case can be found here: `M13T012 <http://lsst-ts/ts_m1m3supporttesting/M13T012.py>`__
 
 For this analysis we are using data from the LVV-T235 test case.
 The following plot shows the x and y positions (shifted in order to be centered around 0) as a function of time, the vertical lines shows the various M1M3 "detailedStates". We see that the same pattern is repeated several times over the chosen data taking period.
@@ -76,7 +73,7 @@ The following plot shows the x and y positions (shifted in order to be centered 
 .. image:: images/810_overview_ref_subtracted.png
   :width: 700px
 
-If we isolate one of the patterns we get the following where the lines shows the Hard Point states
+If we isolate one of the patterns we get the following where the lines show the Hard Point states
 
 .. image:: images/810_singleloop.png
   :width: 700px
@@ -90,13 +87,6 @@ We repeat this selection for every cycle in x and y and get a set of plots like 
 
 The slope measurement is performed on every subset of data. Statistics are summarized in the following table
 
-.. image:: images/810_table.png
-  :width: 700px
-
-We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0 
-
-
-
 
 .. image:: images/810_slope_plot.png
   :width: 700px
@@ -107,6 +97,10 @@ Figure 5. x position between successive ACTIVEENGINEERING and LOWERINGENGINEERIN
   :width: 700px
  
 Figure 6. Statistics on slopes in `mm/s`
+
+
+We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0 
+
 
 .. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
