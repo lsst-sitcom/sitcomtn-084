@@ -34,12 +34,11 @@ Analysing the positions and rotations of xzy compared between before and after t
 
 Figure 1. Position moved on xyz between before and after the slew, according to the elevation slew angle
 
-The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
+The requirement specifies that the rms repeatability of the mirror positioning is what we need. The position shouldn't be moved after slewing. 
+Plot the RMS (Root Mean Square) for each of the distributions shown in the violin plot
 
 .. image:: images/797_histogram_position_rotation_xyz.png
   :width: 700px
-
-The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
 
 Figure 2. Histogram for position and rotation xyz for after - before 
 
@@ -58,8 +57,6 @@ The requirement specifies that the rms repeatability of the mirror positioning i
 
 .. image:: images/854_rms_repeatability.png
   :width: 700px
-
-The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot
 
 Figure 4. rms repeatability
 
@@ -101,6 +98,9 @@ Figure 6. Statistics on slopes in `mm/s`
 
 We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0 
 
+Reference links
+=================
+<http://lsst-ts/ts_m1m3supporttesting/M13T012.py>
 
 .. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
@@ -110,3 +110,8 @@ We conclude that on this dataset, the slopes of x and y positions as a function 
 .. 
 .. .. bibliography:: local.bib lsstbib/books.bib lsstbib/lsst.bib lsstbib/lsst-dm.bib lsstbib/refs.bib lsstbib/refs_ads.bib
 ..    :style: lsst_aa
+
+Acronyms
+=========
+IMS (Independent measuring system)
+RMS (Root Mean Square)
