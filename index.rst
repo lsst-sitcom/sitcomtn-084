@@ -45,10 +45,15 @@ Figure 1. Histogram of position and rotation difference after - before slew. The
 
 Figure 2. x, y, z position and rotation shifts as a function of the elevation angle difference. The color scale shows the elevation speed and the green lines indicate the tolerance intervals. 
 
+.. image:: _static/797_correlations.png
+  :width: 700px
+
+Figure 3. Correlations between the position / rotation shifts in x, y, z. The color scale shows the elevation angle difference during the slew and the green lines indicate the tolerance intervals.
+
 .. image:: _static/Position_Data_IMS_20230711T185330.png
   :width: 700px
 
-Figure 3. Mirror position as reported by the IMS during a large (74 degrees) slow (0.5 degrees/second) elevation slew.  The black dotted lines are the spec from SITCOM-797.
+Figure 4. Mirror position as reported by the IMS during a large (74 degrees) slow (0.5 degrees/second) elevation slew.  The black dotted lines are the spec from SITCOM-797.
 
 From these plots we conclude that the initial specifications are not met, especially for the piston (z displacement). After discussion, it was realized that the displacements are normal and correspond to the sag of the mirror cell due to gravity change and will be compensated by adjusting the M2 and camera hexapods. 
 
@@ -61,14 +66,22 @@ The strategy to compensate the mirror cell displacement by adjusting the M2 and 
 .. image:: _static/Final_Mirror_Position_AzLimits_3_03Aug23.png
   :width: 700px
 
-Figure 4. Mirror position as reported by the IMS at the end of many slews during a random walk session. Detailed explanation in the text.    
+Figure 5. Mirror position as reported by the IMS at the end of many slews during a random walk session. Detailed explanation in the text.    
 
 
 .. image:: _static/Mirror_Position_Temperature_03Aug23.png
   :width: 700px
 
-Figure 5. Mirror Z-position as reported by the IMS at the end of many slews during a random walk session. The temperature during the night is shown in the lower left.  Compensating for temperature significantly reduces the scatter in the points, but we are still a factor of 3-5 away from meeting the specification.
+Figure 6. Mirror Z-position as reported by the IMS at the end of many slews during a random walk session. The temperature during the night is shown in the lower left.  Compensating for temperature significantly reduces the scatter in the points, but we are still a factor of 3-5 away from meeting the specification.
 
+SITCOM - 797 - Position and rotation repeatibility for a specific target elevation.
+===================================================================================
+
+In this analysis we select large amplitude slews (elevation difference > 20 degrees) where the target elevation is 45 +/- 2 degrees and we check the posision / rotation shift with respect to the average position / rotation for this specific elevation angle. Unfortunately we find only 5 slews with such characteristics but it seems that the position / rotation shifts are closer to the specifications with respect to the case where the target elevation is not fixed to a specific value. This study would have to be repeated with a larger statistics to draw firm conclusions.
+
+.. image:: _static/797_single_elevation.png
+
+Figure 7. Mirror position / rotation shifts for target elevation equal to 45 +/- degrees. Detailed explanation in the text.   
 
 SITCOM - 854 : Update LVV-T235 notebook
 ========================================
@@ -78,14 +91,14 @@ Assume that the systematic offset seen in each of the Rotation panels is a calib
 .. image:: _static/854_rotation_sub_median.png
   :width: 700px
 
-Figure 6. Position errors and rotation - median 
+Figure 8. Position errors and rotation - median 
 
 The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
 
 .. image:: _static/854_rms_repeatability.png
   :width: 700px
 
-Figure 7. rms repeatability
+Figure 9. rms repeatability
 
 SITCOM - 810 : Create data analysis script/notebook for LVV-T235 - Raise/Park Repeatability
 ============================================================================================
@@ -97,24 +110,23 @@ The following plot shows the x and y positions (shifted in order to be centered 
 .. image:: _static/810_overview_ref_subtracted.png
   :width: 700px
 
+Figure 10. x and y positions while lowering and raising the mirror
+
 If we isolate one of the patterns we get the following figure where the lines show the Hard Point states
 
 .. image:: _static/810_singleloop.png
   :width: 700px
 
-We are interested in the slope of the x and y positions on the flat tops / bottoms just before reaching the state: "HP in Standby". We choose to select and analyze one second of data before "HP in standby".
+Figure 11. Zoom on a single lowering / raising cycle
 
-.. image:: _static/810_slope_plot.png
-  :width: 700px
+We are interested in the slope of the x and y positions on the flat tops / bottoms just before reaching the state: "HP in Standby" (indicated by the dotted lines). We choose to select and analyze one second of data before "HP in standby". During this last second the position is expected to be stable, showing a slope which is compatible with 0.
 
-Figure 5. x position between successive ACTIVEENGINEERING and LOWERINGENGINEERING states, and between selected timestamps where all 6 Hard Points are in standby `(motionState == 0)`. 
+We repeat this selection for every cycle in x and y and get a set of plots like the following showing the x and y positions as a function of time in the one-second time windows.
 
 .. image:: _static/810_position_stability.png
   :width: 700px
 
-
-We repeat this selection for every cycle in x and y and get a set of plots like the following showing the x and y positions as a function of time in the one-second time windows.
-
+Figure 12. x and y positions during the last second before reaching the "satnadby" state for typical cycles
 
 The slope measurement is performed on every subset of data. Statistics are summarized in the following table
 
