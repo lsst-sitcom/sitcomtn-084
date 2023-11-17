@@ -57,6 +57,11 @@ SITCOM - 797 : M1M3 - Compensating mirror motion with the hexapods.
 
 The strategy to compensate the mirror cell displacement by adjusting the M2 and camera hexapods requires that the mirror motion be reproducible, so that a look-up table for the hexapods will be able to follow the motion to the specified tolerances.  So the next step was to look at a large number of slews taken during a random walk session and look at the mirror position as a function of elevation for each of the slews.  This is shown in Figure 4.  The colors are the slew speed as a percentage of maximum speed. The curves seem to group themselves according to the slew speeds.  However, note the speed grouping is ordered as 30-40-50-20, which is the order that the tests were run in.  So it is more likely that the grouping reflects something else varying during the night.  One possibility is that the variation is caused by temperature.  Figure 5 shows the Z-position variation through the same group of slews. Even though the temperature change during the run was only 0.6C, compensating for temperature significantly reduces the scatter in the points. However, note that we are still a factor of 3-5 away from meeting the specification.  More testing is needed to see if we can reduce the scatter to the required level.
 
+Plots 3, 4, and 5 were made with the following notebook:
+
+https://github.com/lsst-sitcom/notebooks_vandv
+at:
+notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOM-797_MTM1M3_Position_Stability_17Nov23.ipynb
 
 .. image:: _static/Final_Mirror_Position_AzLimits_3_03Aug23.png
   :width: 700px
