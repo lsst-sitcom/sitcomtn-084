@@ -4,19 +4,11 @@ Position Repeatability Analysis
 
 .. abstract::
 
-   This is the technote for the Position Repeatability Analysis on the TMA with M1M3 
+   This is the technote for the Position Repeatability Analysis on the TMA with M1M3. We measured the mirror motion (position and rotation) before and after a slew. Analysis was done for slews reaching different elevation and azimuth angles, and also for different slewing speed.  
 
 
 
 .. Metadata such as the title, authors, and description are set in metadata.yaml
-
-.. TODO: Delete the note below before merging new content to the main branch.
-
-Abstract
-========
-
-This is the technote for the Position Repeatability Analysis on the TMA with M1M3. We measured the mirror motion (position and rotation) before and after a slew. 
-Analysis was done for slews reaching different elevation and azimuth angles, and also for different slewing speed.  
 
 Related SITCOM tickets
 ======================
