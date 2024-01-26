@@ -72,6 +72,23 @@ Related SITCOM tickets
 
 `SITCOM-1118`_: M1M3 slewing analysis when TMA moves in azimuth only
 
+Telemetry
+=========
+
+In this technote we analyze the telescope mount telemetry (mtmount)
+to gather the information about the telescope motion. The relevant telemetry are:
+
+  - `MTMount.azimuth`_
+  - `MTMount.elevation`_
+
+We are also interested on the position of the M1M3 mirror measured by the IMS
+
+  - `MTM1M3.imsData`_
+
+And the temperature of the glycol loop inside the mirror cell.
+
+  - `MTM1M3TS.glycolLoopTemperature`_
+
 
 Slewing analysis - Positioning
 ============================================
@@ -268,25 +285,7 @@ The slope measurement is performed on every subset of data. Statistics are summa
 .. figure:: _static/810_table_slopes.png
   :width: 700px
 
-We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0
-
-Telemetry
-=========
-
-In this technote we analyze the telescope mount telemetry (mtmount)
-to gather the information about the telescope motion. The relevant telemetry are:
-
-  - `MTMount.azimuth`_
-  - `MTMount.elevation`_
-
-We are also interested on the position of the M1M3 mirror measured by the IMS
-
-  - `MTM1M3.imsData`_
-
-And the temperature of the glycol loop inside the mirror cell.
-
-  - `MTM1M3TS.glycolLoopTemperature`_
-
+We conclude that on this dataset, the slopes of x and y positions as a function of time are all compatible with 0.
 
 Reference links
 =================
