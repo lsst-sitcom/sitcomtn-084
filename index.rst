@@ -207,8 +207,8 @@ This study would have to be repeated with a larger statistics to draw firm concl
 
 Figure 8. Mirror position / rotation shifts for target elevation equal to 45 +/- degrees. Detailed explanation in the text.
 
-Update LVV-T235 notebook
-=======================================
+Position Repeatability After Parking.
+=====================================
 
 Associated ticket: `SITCOM-854`_.
 
@@ -291,7 +291,7 @@ And the temperature of the glycol loop inside the mirror cell.
 Reference links
 =================
 <http://lsst-ts/ts_m1m3supporttesting/M13T012.py>
-.. https://github.com/lsst-ts/ts_m1m3supporttesting/blob/develop/M13T012.py
+
 .. See the `reStructuredText Style Guide <https://developer.lsst.io/restructuredtext/style.html>`__ to learn how to create sections, links, images, tables, equations, and more.
 
 .. Make in-text citations with: :cite:`bibkey`.
