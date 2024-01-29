@@ -5,13 +5,14 @@
 .. _sitcom-854: https://jira.lsstcorp.org/browse/SITCOM-854
 .. _sitcom-810: https://jira.lsstcorp.org/browse/SITCOM-810
 .. _sitcom-1118: https://jira.lsstcorp.org/browse/SITCOM-1118
+.. _sitcom-1159: https://jira.lsstcorp.org/browse/SITCOM-1159
 
 .. Requirements
 .. _LTS-88: https://ls.st/LTS-88
 
 .. Notebooks
-.. _SITCOM-797_ims_slewing_analysis_positioning: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOM-797_ims_slewing_analysis_positioning.ipynb
-.. _SITCOMN-084--ims_slewing_azimuth_analysis_positioning: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOMTN-084-ims_slewing_azimuth_analysis_positioning.ipynb
+.. _SITCOMTN-084-ims_slewing_elevation_analysis_positioning: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOMTN-084-ims_slewing_elevation_analysis_positioning.ipynb
+.. _SITCOMN-084-ims_slewing_azimuth_analysis_positioning: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOMTN-084-ims_slewing_azimuth_analysis_positioning.ipynb
 .. _SITCOM-797_MTM1M3_Position_Stability_17Nov23: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/SITCOM-797_MTM1M3_Position_Stability_17Nov23.ipynb
 .. _LVV-T235-analysis: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/LVV-T235-analysis.ipynb
 .. _LVV-T235-SITCOM-810: https://github.com/lsst-sitcom/notebooks_vandv/blob/develop/notebooks/tel_and_site/subsys_req_ver/m1m3/LVV-T235-SITCOM-810.ipynb
