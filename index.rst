@@ -33,7 +33,7 @@ Position Repeatability Analysis
 
    This is the technote for the Position Repeatability Analysis on the TMA with M1M3.
    We measured the mirror motion (position and rotation) before and after a slew.
-   Analysis was done for slews reaching different elevation angles, and also for different slewing speed.
+   Analysis was done for slews reaching different elevation angles, and also for different slewing speeds.
 
 .. TODO: Delete the note below before merging new content to the main branch.
 
@@ -72,6 +72,8 @@ Related SITCOM tickets
 
 `SITCOM-1118`_: M1M3 slewing analysis when TMA moves in azimuth only
 
+`SITCOM-1159`_: M1M3 - Take TMA settle time into account when analyzing mirror position repeatability
+
 Telemetry
 =========
 
@@ -93,64 +95,65 @@ And the temperature of the glycol loop inside the mirror cell.
 Slewing analysis - Positioning
 ============================================
 
-Associated ticket: `SITCOM-797`_.
+Associated ticket: `SITCOM-797`_, `SITCOM-1159`_.
 
 Related notebook:
-`SITCOM-797_ims_slewing_analysis_positioning`_.
+`SITCOMTN-084-ims_slewing_elevation_analysis_positioning`_.
 
 
-For this analysis, we compare the positions and rotations reported by the IMS before and after a slew.
-The analysis is done using different elevation angles and speed.
+For this analysis, we compare the positions and rotations reported by the IMS before and after a slew. The analysis is done using different elevation and azimuth angles and speed. The measurement of the mirror positions / rotations before the slew is performed by averaging the positions / rotations reported by the IMS over a 2 second time window right before the slew. The measurement of the mirror positions / rotations after the slew is performed by averaging the positions / rotations reported by the IMS over a 2 second time window computed after a 6 second settle time after the end of the slew.
+
+In order to benefit from the latest tuning of the M1M3 + TMA system, we have selected data acquired during the last 3 days of operation before the january 2024 shutdown (when the cell + surrogate mirror were removed). Slews are selected using the TMAEventMaker utility and slews with no blockInfos are rejected. This allows to avoid spurious data.
+
 
 Requirements are specified in **LTS-88-REQ-0052**.
 
-.. figure:: _static/797_histogram_position_rotation_xyz.png
+.. figure:: _static/TN084-elev-histo.png
   :width: 700px
 
 Figure 1. Histogram of position and rotation difference after - before slew.
-The green lines indicate the tolerance intervals
+The red lines indicate the tolerance intervals
 
-.. figure:: _static/797_position_rotation_xyz.png
+.. figure:: _static/TN084-elev-scatter-1.png
   :width: 700px
 
 Figure 2. x, y, z position and rotation shifts as a function of the elevation angle difference.
-The color scale shows the elevation speed and the green lines indicate the tolerance intervals.
+The color scale shows the elevation speed and the red lines indicate the tolerance intervals.
 
-.. figure:: _static/797_correlations.png
+.. figure:: _static/TN084-elev-scatter-2.png
   :width: 700px
 
-Figure 3. Correlations between the position / rotation shifts in x, y, z. The color scale shows the elevation angle difference during the slew and the green lines indicate the tolerance intervals.
+Figure 3. Correlations between the position / rotation shifts in x, y, z. The color scale shows the elevation angle difference during the slew and the red lines indicate the tolerance intervals.
 
-.. image:: _static/Position_Data_IMS_20230711T185330.png
+.. image:: _static/TN084-elev-slew.png
   :width: 700px
 
-Figure 4. Mirror position as reported by the IMS during a large (74 degrees) slow (0.5 degrees/second) elevation slew.  The black dotted lines are the spec from SITCOM-797.
+Figure 4. Mirror positions and rotations as a function of time as reported by the IMS during a large (70.5 degrees) elevation slew. The vertical red lines show the start of the slew, the green ones show the end of the slew and the rightmost black ones correspond to the end of the slew plus a 6s settle time. 
 
-From these plots we conclude that the initial specifications are not met, especially for the piston (z displacement). After discussion, it was realized that the displacements are normal and correspond to the sag of the mirror cell due to gravity change and will be compensated by adjusting the M2 and camera hexapods.
-
+From these plots we conclude that the initial specifications on the mirror positions and rotations are not met, especially for the piston (z displacement). After discussion with experts, it was realized that these displacements are normal and correspond to the sag of the mirror cell due to gravity change that should be compensated by adjusting the M2 and camera hexapods. 
 
 Slewing in Azimuth Analysis - Positioning
 =========================================
 
 
-Associated ticket: `SITCOM-1118`_.
+Associated ticket: `SITCOM-1118`_, `SITCOM-1159`_.
 
 Related notebook:
-`SITCOMN-084--ims_slewing_azimuth_analysis_positioning`_.
+`SITCOMN-084-ims_slewing_azimuth_analysis_positioning`_.
 
-This analysis is very similar to the one described in the previous section but this time we select slews
-where the TMA is moving in **azimuth only**. In this case we do not expect significant forces
-to be applied to the M1M3 mirror cell.
+This analysis is very similar to the one described in the previous section but this time we select slews where the TMA is moving in **azimuth only**. In this case we do not expect significant forces to be applied to the M1M3 mirror cell. In the same way as before we allow a 6s settle time before measuring the final mirror positions and rotations.
 
-.. figure:: _static/1118_position_rotation_xyz.png
+.. figure:: _static/TN084-azi-histo.png
   :width: 700px
 
-Figure 5. x, y, z position and rotation shifts as a function of the azimuth angle difference.
-The color scale shows the elevation speed and the red lines indicate the tolerance intervals.
+Figure 5. Histograms of the x, y, z position and rotation displacements. The red lines show the targeted tolerances
 
-In this analysis we see that we are closer to the specifications that in the case where the
-TMA is moving in elevation, but there are still cases where the mirror displacement is out of
-specifications. We also observe an asymetry associated to the TMA direction of rotation.
+.. figure:: _static/TN084-azi-scatter-1.png
+  :width: 700px
+
+Figure 6. x, y, z position and rotation displacements as a function of the azimuth angle difference. The color scale shows the speed in azimuth and the red lines indicate the tolerance intervals.
+
+In this analysis we see that the mirror displacements are within the specifications but for the rotation around the x axis where there are some outliers. The mirror rotation seems also correlated to the azimuth difference for movement < 50 degrees. For larger TMA movements the mirror rotation is within the specifications. This behavior needs to be confirmed on a larger statistics.
 
 
 Compensating Mirror Motion with the Hexapods
@@ -174,13 +177,13 @@ So the next step was to look at a large number of slews
 taken during a random walk session and look at the mirror position as a function of
 elevation for each of the slews.
 
-This is shown in Figure 6.  The colors are the slew speed as a percentage of maximum speed.
+This is shown in Figure 7.  The colors are the slew speed as a percentage of maximum speed.
 The curves seem to group themselves according to the slew speeds.
 However, note the speed grouping is ordered as 30-40-50-20, which is the order that the tests were run in.
 So it is more likely that the grouping reflects something else varying during the night.
 One possibility is that the variation is caused by temperature.
 
-Figure 7 shows the Z-position variation through the same group of slews.
+Figure 8 shows the Z-position variation through the same group of slews.
 Even though the temperature change during the run was only 0.6C, compensating for
 temperature significantly reduces the scatter in the points. However, note that
 we are still a factor of 3-5 away from meeting the specification.
@@ -191,14 +194,14 @@ More testing is needed to see if we can reduce the scatter to the required level
 .. figure:: _static/Final_Mirror_Position_AzLimits_3_03Aug23.png
   :width: 700px
 
-Figure 6. Mirror position as reported by the IMS at the end of many slews during a random walk session.
+Figure 7. Mirror position as reported by the IMS at the end of many slews during a random walk session.
 Detailed explanation in the text.
 
 
 .. figure:: _static/Mirror_Position_Temperature_03Aug23.png
   :width: 700px
 
-Figure 7. Mirror Z-position as reported by the IMS at the end of many slews during a random walk session.
+Figure 8. Mirror Z-position as reported by the IMS at the end of many slews during a random walk session.
 The temperature during the night is shown in the lower left.
 Compensating for temperature significantly reduces the scatter in the points,
 but we are still a factor of 3-5 away from meeting the specification.
@@ -210,19 +213,25 @@ Position and Rotation Repeatibility for a Specific Target Elevation.
 Associated ticket: `SITCOM-797`_.
 
 Related notebook:
-`SITCOM-797_ims_slewing_analysis_positioning`_.
+`SITCOMTN-084-ims_slewing_elevation_analysis_positioning`_.
 
-In this analysis we select large amplitude slews (elevation difference > 20 degrees)
-where the target elevation is 45 +/- 2 degrees and we check the posision / rotation
-shift with respect to the average position / rotation for this specific elevation angle.
-Unfortunately we find only 5 slews with such characteristics but it seems that
-the position / rotation shifts are closer to the specifications with respect to
-the case where the target elevation is not fixed to a specific value.
-This study would have to be repeated with a larger statistics to draw firm conclusions.
+In this analysis we select large amplitude slews (elevation difference > 10 degrees) where the target elevation is 45 +/- 2 degrees and we check the posision / rotation shift with respect to the average position / rotation for this specific elevation angle. We find only 19 slews with such characteristics but despite of the limited statistics it seems that the position / rotation shifts are closer to the specifications with respect to the case where the target elevation is not fixed to a specific value. This study would have to be repeated with a larger statistics to draw firm conclusions.
 
-.. figure:: _static/797_single_elevation.png
+.. figure:: _static/TN084-elev-fix-45-histo.png
 
-Figure 8. Mirror position / rotation shifts for target elevation equal to 45 +/- degrees. Detailed explanation in the text.
+Figure 9. Mirror position / rotation shifts for target elevation equal to 45 +/- degrees. Detailed explanation in the text.
+
+Detailed analysis of a slew where the TMA is moving in azimuth only
+===================================================================
+
+Associated ticket: `SITCOM-797`_.
+
+.. figure:: _static/TN084-azi-slew-1.png
+
+Figure 10. Variation as a funtion of time of the inclinometer and azimuth measurement (left), the rotation around the x axis (middle) and the total applied balance force along the x axis (right) for a single slew. 
+
+The azimuth measurement is flat all along the slew but we know that a time delay makes this measurement unreliable. The inclinometer measurement is supposed to give the angle of rotation of the mirror around the x axis but it is also sensitive to the acceleration of the TMA. This effect is clearly seen in the left panel of the previous figure. As the inclinometer data is part of the mirror position control loop, the system is probably over-compensating the mirror rotation around the x axis, leading to mirror displacements out of specification. A possible way to overcome this problem would be to fit the inclinometer values to the measured applied forces in order to be able to subtract the effect of the acceleration from the inclinometer data. This will be attempted in a separate analysis.
+
 
 Position Repeatability After Parking.
 =====================================
@@ -238,14 +247,14 @@ Assume that the systematic offset seen in each of the Rotation panels is a calib
 .. figure:: _static/854_rotation_sub_median.png
   :width: 700px
 
-Figure 9. Position errors and rotation - median
+Figure 11. Position errors and rotation - median
 
 The requirement specifies that the rms repeatability of the mirror positioning is what we need. Plot the rms for each of the distributions shown in the violin plot:
 
 .. figure:: _static/854_rms_repeatability.png
   :width: 700px
 
-Figure 10. rms repeatability
+Figure 12. rms repeatability
 
 
 Raise/Park Repeatability
@@ -262,14 +271,14 @@ The following plot shows the x and y positions (shifted in order to be centered 
 .. figure:: _static/810_overview_ref_subtracted.png
   :width: 700px
 
-Figure 11. x and y positions while lowering and raising the mirror
+Figure 13. x and y positions while lowering and raising the mirror
 
 If we isolate one of the patterns we get the following figure where the lines show the Hard Point states
 
 .. figure:: _static/810_singleloop.png
   :width: 700px
 
-Figure 12. Zoom on a single lowering / raising cycle
+Figure 14. Zoom on a single lowering / raising cycle
 
 We are interested in the slope of the x and y positions on the flat tops / bottoms just before reaching the state: "HP in Standby" (indicated by the dotted lines). We choose to select and analyze one second of data before "HP in standby". During this last second the position is expected to be stable, showing a slope which is compatible with 0.
 
@@ -278,7 +287,7 @@ We repeat this selection for every cycle in x and y and get a set of plots like 
 .. figure:: _static/810_position_stability.png
   :width: 700px
 
-Figure 13. x and y positions during the last second before reaching the "satnadby" state for typical cycles
+Figure 15. x and y positions during the last second before reaching the "standby" state for typical cycles
 
 The slope measurement is performed on every subset of data. Statistics are summarized in the following table
 
